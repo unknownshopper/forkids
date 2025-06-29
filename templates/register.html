@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro</title>
+</head>
+<body>
+    <h1>Registro de usuario</h1>
+    <form method="post">
+        <input type="email" name="email" placeholder="Correo" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <input type="text" name="pago_info" placeholder="Información de pago (opcional)">
+        <input type="text" name="delivery_info" placeholder="Información de delivery (opcional)">
+        <button type="submit">Registrarse</button>
+    </form>
+    <a href="{{ url_for('login') }}">¿Ya tienes cuenta? Inicia sesión</a>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
