@@ -30,3 +30,10 @@ id,nombre,tipo,horario,precio,servicios,direccion,telefono
 29,Disfraces y Maquillajes Kids,Eventos,"L-D 10:00-20:00","-",Disfraces, Maquillajes,Calle Disfraz 10,555-606-1626
 30,Salón de Videojuegos Pixel Kids,Eventos,"Renta por hora","$800/hora",Salas de videojuegos,Calle Pixel 11,555-636-4656
 31,Eventos Infantiles Alegría,Eventos,"Por evento","Desde $5,000","Eventos infantiles, culturales, sociales",Calle Evento 12,555-666-7686
+id,nombre,tipo,subcategoria,descripcion
+32,Angelitos Care,Guarderías,Guarderías,Guardería privada con atención personalizada.
+33,Pequeños Genios,Guarderías,Guarderías,Guardería bilingüe con actividades lúdicas.
+34,Estancia Infantil Sol,Guarderías,Guarderías,Estancia con horario extendido y alimentación.
+35,Kids Club,Guarderías,Guarderías,Guardería con talleres de arte y música.
+36,Guardería Mundo Feliz,Guarderías,Guarderías,Guardería con área de juegos y psicopedagogía.
+37,Guardería ABC,Guarderías,Guarderías,Guardería con transporte escolar y actividades deportivas.

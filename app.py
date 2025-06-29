@@ -10,6 +10,51 @@ def slugify(text):
     return text.lower().replace(' ', '_')
     
 
+CATEGORIAS = {
+    "educacion": {
+        "nombre": "Educación",
+        "subcategorias": [
+            {"slug": "escuelas", "nombre": "Escuelas"},
+            {"slug": "preescolar", "nombre": "Preescolar"},
+            {"slug": "primaria", "nombre": "Primaria"},
+            {"slug": "idiomas", "nombre": "Idiomas"},
+            {"slug": "programacion", "nombre": "Programación"},
+            {"slug": "talleres_arte", "nombre": "Talleres de arte"},
+            {"slug": "regularizacion", "nombre": "Clases de regularización"},
+            {"slug": "transporte_escolar", "nombre": "Transporte escolar"},
+            {"slug": "ropa", "nombre": "Ropa"},
+            {"slug": "uniformes_escolares", "nombre": "Uniformes escolares"},
+            {"slug": "uniformes_deportivos", "nombre": "Uniformes deportivos"},
+            {"slug": "accesorios", "nombre": "Accesorios"},
+            {"slug": "moda_especializada", "nombre": "Moda especializada"},
+        ]
+    },
+    "eventos": {
+        "nombre": "Eventos",
+        "subcategorias": [
+            # Agrega aquí tus subcategorías de eventos
+        ]
+    },
+    "guarderias": {
+        "nombre": "Guarderías",
+        "subcategorias": [
+            {"slug": "guarderias", "nombre": "Guarderías"},
+            {"slug": "transporte_escolar", "nombre": "Transporte escolar"},
+            {"slug": "ropa", "nombre": "Ropa"},
+            {"slug": "uniformes_escolares", "nombre": "Uniformes escolares"},
+            {"slug": "uniformes_deportivos", "nombre": "Uniformes deportivos"},
+            {"slug": "accesorios", "nombre": "Accesorios"},
+            {"slug": "moda_especializada", "nombre": "Moda especializada"},
+        ]
+    },
+    "salud_y_bienestar": {
+        "nombre": "Salud y bienestar",
+        "subcategorias": [
+            # Agrega aquí tus subcategorías de salud y bienestar
+        ]
+    }
+}
+
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
@@ -62,8 +107,10 @@ def index():
     empresas = leer_empresas()
     # Obtener categorías únicas (tipo)
     categorias = sorted(set(e['tipo'] for e in empresas))
-    categorias_info = [{"nombre": cat, "slug": slugify(cat)} for cat in categorias]
-    return render_template('index.html', categorias=categorias_info)    
+    # Filtrar solo las categorías válidas
+    categorias_validas = [cat for cat in categorias if slugify(cat) in CATEGORIAS]
+    categorias_info = [{"nombre": cat, "slug": slugify(cat)} for cat in categorias_validas]
+    return render_template('index.html', categorias=categorias_info) 
 
 @app.route('/categoria/<tipo>')
 def categoria(tipo):
