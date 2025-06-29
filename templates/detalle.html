@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>...</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+    </head>
+<body>
+<div class="container py-4">
+    <h1 class="text-center">{{ empresa.nombre }}</h1>
+    <div class="detalle-card mx-auto" style="max-width: 500px;">
+        <p><span class="detalle-label">Tipo:</span> {{ empresa.tipo }}</p>
+        <p><span class="detalle-label">Horario:</span> {{ empresa.horario }}</p>
+        <p><span class="detalle-label">Precio:</span> {{ empresa.precio }}</p>
+        <p><span class="detalle-label">Servicios:</span> {{ empresa.servicios }}</p>
+        <p><span class="detalle-label">Dirección:</span> {{ empresa.direccion }}</p>
+        <p><span class="detalle-label">Teléfono:</span> {{ empresa.telefono }}</p>
+        <a href="https://wa.me/52{{ empresa.telefono|replace(' ','') }}"
+   class="btn btn-primary mt-3"
+   target="_blank">
+   Reservar vía WhatsApp
+</a>
+
+<form action="https://formspree.io/f/moqprjkl" method="POST" class="mt-4" id="reserva-form">
+    <div class="mb-2">
+      <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required>
+    </div>
+    <div class="mb-2">
+      <input type="email" name="email" class="form-control" placeholder="Tu correo electrónico" required>
+    </div>
+    <div class="mb-2">
+      <input type="tel" name="telefono" class="form-control" placeholder="Tu teléfono" required>
+    </div>
+    <div class="mb-2">
+      <textarea name="mensaje" class="form-control" placeholder="¿Qué servicio deseas reservar?" rows="2" required></textarea>
+    </div>
+    <input type="hidden" name="empresa" value="{{ empresa.nombre }}">
+    <button type="submit" class="btn btn-primary w-100">Reservar / Solicitar información</button>
+    <div id="form-success" class="alert alert-success mt-2 d-none" role="alert">
+      ¡Tu solicitud fue enviada! Pronto te contactaremos.
+    </div>
+  </form>
+
+
+        <a href="/" class="btn btn-secondary mt-3">Volver al inicio</a>
+    </div>
+</div>
+<footer>
+    <div class="social-icons">
+        <a href="..."><i class="bi bi-facebook"></i></a>
+        <a href="..."><i class="bi bi-instagram"></i></a>
+        <a href="..."><i class="bi bi-whatsapp"></i></a>
+    </div>
+    <small>&copy; 2025 Universokids. Todos los derechos reservados.</small>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('reserva-form');
+      if(form){
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var data = new FormData(form);
+          fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: {'Accept': 'application/json'}
+          }).then(response => {
+            if (response.ok) {
+              form.reset();
+              document.getElementById('form-success').classList.remove('d-none');
+            }
+          });
+        });
+      }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+UniversoKids - Project Status
+Resumen del Proyecto
+UniversoKids es un directorio web regional enfocado en servicios y negocios para el mercado infantil y sus padres en Tabasco, México. El objetivo es ofrecer una plataforma visualmente atractiva, sencilla y eficiente para que los padres encuentren y contacten empresas de servicios infantiles de manera rápida y confiable.
+
+Características Actuales
+Tecnología: Python + Flask (backend), HTML + Bootstrap + CSS personalizado (frontend).
+Datos: Empresas cargadas desde un archivo CSV editable manualmente.
+Diseño: Paleta de colores infantil (blanco, rojo, naranja, amarillo), tipografía amigable (Quicksand), iconos Bootstrap.
+Interfaz:
+Página principal con categorías principales en grid responsivo.
+Página de categoría con tarjetas animadas de empresas.
+Página de detalle con información completa de cada empresa.
+Footer colorido y centrado con enlaces a redes sociales.
+Estilos: Todo el CSS personalizado centralizado en 
+static/estilos.css
+ para fácil mantenimiento.
+Animaciones: Transiciones, efectos hover, animación en títulos y botones para un look alegre y moderno.
+Contacto/Reserva: Formulario de reserva integrado con Formspree en la página de detalle, permitiendo a los usuarios solicitar información o reservar servicios fácilmente.
+Situación Actual
+El sitio funciona correctamente en local.
+El diseño es atractivo, responsivo y coherente en todas las páginas.
+El formulario de reserva/contacto está operativo usando Formspree.
+El código está organizado y preparado para futuras mejoras.
+No hay errores críticos reportados.
+Dirección y Próximos Pasos
+Mejoras UX/UI: Agregar más animaciones, efectos visuales y posiblemente ilustraciones infantiles.
+Funcionalidad:
+Implementar buscador y filtros por categoría, ubicación o precio.
+Panel administrativo para gestionar empresas sin editar el CSV manualmente.
+Integración de mapas para mostrar ubicaciones.
+Sección de opiniones y calificaciones de usuarios.
+Inclusión de imágenes o iconos personalizados para cada empresa o categoría.
+SEO y Accesibilidad: Optimizar para motores de búsqueda y mejorar accesibilidad.
+Despliegue: Preparar para producción usando WSGI (ej. Gunicorn) y desplegar en servidor seguro.
+Monetización: Explorar opciones de membresía o anuncios para empresas destacadas.
+Estado:
+Proyecto en fase funcional y visual avanzada, listo para pruebas con usuarios y siguientes etapas de desarrollo.
+
+
+

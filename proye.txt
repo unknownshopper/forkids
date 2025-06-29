@@ -1,0 +1,8 @@
+universokids/
+│
+├── app.py                # Código principal Flask
+├── empresas.csv          # Archivo con los datos de las empresas
+├── templates/
+│     ├── index.html      # Lista de empresas
+│     └── detalle.html    # Detalle de empresa
+└── README.md
